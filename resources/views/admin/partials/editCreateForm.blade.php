@@ -9,7 +9,7 @@
         Select your type
       </label>
 
-      <select name="" class="form-control" id="post_id" name="type_id">
+      <select name="type_id" class="form-control" id="post_id" >
         @foreach ($types as $type)
         <option value="{{ $type->id}}" {{old('type_id', $post->type_id) == $type->id ? 'selected' : ''}}>{{ $type->name}}</option>
         @endforeach
