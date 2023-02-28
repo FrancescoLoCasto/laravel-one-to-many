@@ -3,6 +3,19 @@
 <form action="{{route($routeName, $post)}}" method="POST" enctype="multipart/form-data" >
    @csrf
    @method($method)
+
+    <div class="mb-3">
+      <label for="post_id" class="form-label">
+        Select your type
+      </label>
+
+      <select name="" class="form-control" id="post_id" name="type_id">
+        @foreach ($types as $type)
+        <option value="{{ $type->id}}">{{ $type->name}}</option>
+        @endforeach
+      </select>
+
+    </div>
    <div class="mb-3">
       <label for="post_title" class="form-label">Title</label>
       <input type="text" class="form-control" id="post_title" placeholder="" name="title" value="{{old('title', $post->title)}}">
