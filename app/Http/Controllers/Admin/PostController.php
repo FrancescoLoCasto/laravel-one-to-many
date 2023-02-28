@@ -20,6 +20,7 @@ class PostController extends Controller
         'post_date' => 'required',
         'content' => 'required',
         'image' => 'required|image',
+        'type_id'=> 'required|exists:types,id'
     ];
     /**
      * Display a listing of the resource.
@@ -99,6 +100,7 @@ class PostController extends Controller
                 'post_date' => 'required|after:yesterday',
                 'content' => 'required',
                 'image'=> 'image|required',
+                'type_id'=> 'required|exists:types,id'
         ]);
         $post->update($data);
         return redirect()->route('admin.posts.show', compact('post'));

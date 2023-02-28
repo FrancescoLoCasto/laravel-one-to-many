@@ -11,7 +11,7 @@
 
       <select name="" class="form-control" id="post_id" name="type_id">
         @foreach ($types as $type)
-        <option value="{{ $type->id}}">{{ $type->name}}</option>
+        <option value="{{ $type->id}}" {{old('type_id', $post->type_id) == $type->id ? 'selected' : ''}}>{{ $type->name}}</option>
         @endforeach
       </select>
 
