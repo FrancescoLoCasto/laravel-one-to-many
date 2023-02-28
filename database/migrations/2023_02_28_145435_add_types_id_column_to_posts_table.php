@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger('types_id');
+            $table->unsignedBigInteger('type_id')->after('id');
             
-            $table->foreign('types_id')
+            $table->foreign('type_id')
             ->references('id')
             ->on('types');
         });
@@ -30,8 +30,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('posts_user_id_foreign');
-            $table->dropColumn('types_id');
+            $table->dropForeign('posts_type_id_foreign');
+            $table->dropColumn('type_id');
         });
     }
 };
